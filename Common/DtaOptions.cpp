@@ -69,7 +69,7 @@ void usage()
 	printf("                                Change the SID password\n");
 	printf("--setAdmin1Pwd <Admin1password> <newAdmin1password> <device> \n");
 	printf("                                Change the Admin1 password\n");
-	printf("--setPassword <oldpassword, \"\" for MSID> <userid> <newpassword> <device> \n");
+	printf("--setPassword <Admin1password, \"\" for MSID> <userid> <newpassword> <device> \n");
 	printf("                                Change the Enterprise password for userid\n");
 	printf("                                \"EraseMaster\" or \"BandMaster<n>\", 0 <= n <= 1023\n");
 	printf("--setLockingRange <0...n> <RW|RO|LK> <userid> <password> <device> \n");
@@ -100,7 +100,7 @@ void usage()
     printf("                                print MSID \n");
 	printf("--addUserToLockingACEs <userid> <Admin1password> <device> \n");
 	printf("                                add UserX to locking ACEs\n");
-	printf("--enableUser <userid> <Admin1password> <device> \n");
+	printf("--enableUser <Admin1password> <userid> <device> \n");
 	printf("                                grant UserX permission to lock/unlock device\n");
     printf("--printPasswordHash <password> <device>\n");
     printf("                                print the hash of the password \n");

@@ -13,7 +13,7 @@ cd images
 ./buildpbaroot 
 ./buildbios 
 ./buildUEFI64 
-mkdir UEFI64 
+mkdir -p UEFI64 
 mv UEFI64-1.15*.img.gz UEFI64 
 ./buildrescue Rescue32 
 ./buildrescue Rescue64 

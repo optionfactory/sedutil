@@ -18,5 +18,3 @@ mv UEFI64-1.15*.img.gz UEFI64
 ./buildrescue Rescue32 
 ./buildrescue Rescue64 
 cd ..
-printf "\n\nAll done.\nMaking noise so you know we're done.\n\n\n"
-while true; do printf "\a"; sleep 2; done

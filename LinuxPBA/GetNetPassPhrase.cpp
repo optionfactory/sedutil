@@ -47,7 +47,8 @@ std::shared_ptr<SecureString> GetNetPassPhrase()
     servaddr.sin_port = htons(PORT);
     servaddr.sin_addr.s_addr = INADDR_BROADCAST;
 
-    socklen_t n, len;
+    socklen_t len;
+    int n;
 
     sendto(sockfd, (const char *)hello, strlen(hello),
            MSG_CONFIRM, (const struct sockaddr *)&servaddr,
@@ -57,6 +58,11 @@ std::shared_ptr<SecureString> GetNetPassPhrase()
     n = recvfrom(sockfd, (char *)buffer, MAXLINE,
                  MSG_WAITALL, (struct sockaddr *)&servaddr,
                  &len);
+    if (n < 0) {
+        perror("Error receiving response");
+        std::shared_ptr<SecureString> password = std::allocate_shared<SecureString>(SecureAllocator<SecureString>(), "");
+        return password;
+    }
     buffer[n] = '\0';
     printf("Received : %s\n", buffer);
 

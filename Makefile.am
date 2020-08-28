@@ -32,8 +32,8 @@ sedutil_cli_SOURCES = linux/Version.h Common/sedutil.cpp Common/DtaOptions.cpp C
 CLEANFILES = linux/Version.h
 BUILT_SOURCES = linux/Version.h
 #
-linuxpba_SOURCES = LinuxPBA/LinuxPBA.cpp LinuxPBA/GetPassPhrase.cpp LinuxPBA/UnlockSEDs.cpp \
-	 LinuxPBA/GetPassPhrase.h LinuxPBA/UnlockSEDs.h \
+linuxpba_SOURCES = LinuxPBA/LinuxPBA.cpp LinuxPBA/GetPassPhrase.cpp LinuxPBA/GetNetPassPhrase.cpp  LinuxPBA/UnlockSEDs.cpp \
+	 LinuxPBA/GetPassPhrase.h LinuxPBA/GetNetPassPhrase.h LinuxPBA/UnlockSEDs.h \
 	\
 	linux/DtaDevLinuxNvme.cpp linux/DtaDevLinuxNvme.h \
 	linux/DtaDevLinuxSata.cpp linux/DtaDevLinuxSata.h \

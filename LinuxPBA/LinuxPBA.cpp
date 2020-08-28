@@ -24,7 +24,9 @@ This software is Copyright 2014-2017 Bright Plaza Inc. <drivetrust@drivetrust.co
 #include <iostream>
 #include "log.h"
 #include "GetPassPhrase.h"
+#include "GetNetPassPhrase.h"
 #include "UnlockSEDs.h"
+
 
 using namespace std;
 
@@ -40,13 +42,20 @@ int main(int argc, char** argv) {
 
     std::shared_ptr<SecureString> p;
     uint8_t n_unlocks = 0, n_counter = 0;
+
     while (n_unlocks == 0 && n_counter < 3) {
+        p = GetNetPassPhrase();
+        n_unlocks += UnlockSEDs((char *)p->c_str());
+        if (n_unlocks == 0) n_counter++;
+    }
+
+    while (n_unlocks == 0 && n_counter < 6) {
         p = GetPassPhrase(" Password: ");
         n_unlocks += UnlockSEDs((char *)p->c_str());
         if (n_unlocks == 0) n_counter++;
     }
     
-    if (n_counter >= 3) {
+    if (n_counter >= 6) {
         printf("\n Authorization failed. Shutting down... \n");
         sync();
         reboot(RB_POWER_OFF);
